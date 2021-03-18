@@ -1,4 +1,7 @@
 'use strict';
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable no-undefined */
 
 const fs = require('fs');
 const test = require('ava');
@@ -136,7 +139,7 @@ test('format less', (t) => {
     }).then((source) => {
         t.is(
             source,
-            `@base: #F938AB;
+            `@base: #f938ab;
 
 .box-shadow(@style, @c) when (iscolor(@c)) {
     -webkit-box-shadow: @style @c;
@@ -198,7 +201,7 @@ test('alternate stylelint format', (t) => {
 
 
 
-a[id="foo"] { content: "x"; }
+a[id='foo'] { content: 'x'; }
 `
             );
 
@@ -224,11 +227,11 @@ test('resolve relative package deep', (t) => {
 test('resolve relative package fallback', (t) => {
     const path = resolveFrom('./fixtures/style.css', 'prettier');
 
-    t.is('1.7.0', require(path).version);
+    t.is('2.2.1', require(path).version);
 });
 
 test('resolve relative package null', (t) => {
     const path = resolveFrom(__filename, 'prettier');
 
-    t.is('1.7.0', require(path).version);
+    t.is('2.2.1', require(path).version);
 });

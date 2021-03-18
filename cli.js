@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 'use strict';
+/* eslint-disable global-require */
+/* eslint-disable no-console */
 
 const debug = require('debug')('prettier-stylelint');
 const importLocal = require('import-local');
